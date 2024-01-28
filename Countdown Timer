@@ -1,6 +1,10 @@
 import time
+import pygame
 
-def countdown_timer(total_seconds):
+# Initalize Pygame mixer
+pygame.mixer.init()
+
+def countdown_timer(total_seconds, item_name):
     days, remainder = divmod(total_seconds, 86400)
     hours, remainder = divmod(remainder, 3600)
     minutes, remainder = divmod(remainder, 60)
@@ -9,31 +13,34 @@ def countdown_timer(total_seconds):
     while total_seconds:
         timeformat = '{:02d}d {:02d}h {:02d}m {:02d}s'.format(days, hours, minutes, seconds)
         print(timeformat, end='\r')
-        print(timeformat, end='\r')
         time.sleep(1)
         total_seconds -= 1
         days, remainder = divmod(total_seconds, 86400)
         hours, remainder = divmod(remainder, 3600)
         minutes, remainder = divmod(remainder, 60)
 
-    print("______")
+    print(f"\n{item_name} expired!")
+    pygame.mixer.music.load
+    pygame.mixer.music.play
+    while pygame.mixer.music.get_busy():
+        pygame.time.Clock().tick(10)
 
 # Dictionary with food items and their respective countdown times in seconds
 food_items = {
-    'Item': 000     #0 minutes
-    'Item': 000     #0 minutes
+    'Item': 300,     #5 minutes
+    'Item': 600,     #10 minutes
 }
 
 
 # Loop through each food item and start the countdown timer
 for item, time_seconds in food_items.items():
     print(f"\nPreparing {item}...")
-    countdown_timer(time_seconds)
+    countdown_timer(time_seconds, item)
 
-print("__________")
+print("\n")
 
 
-# Set the countdown time in seconds
-countdown_time = 366500  # 4 days, 5 hours, 1 minute, and 40 seconds
+# Set the countdown time in seconds for a generic countdown time
+countdown_time = 10 #10 seconds for demo
 
-countdown_timer(countdown_time)
+countdown_timer(countdown_time "Generic Item")
