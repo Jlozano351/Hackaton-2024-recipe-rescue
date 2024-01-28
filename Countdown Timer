@@ -1,13 +1,47 @@
+from datetime import datetime, timedelta
 import time
-import pygame
+import os
 
-import time
-import pygame
+# Function to send notifications
+def send_notification(title, message):
+    # For macOS
+    os.system(f'display notification "{message}" with title "{title}"')
 
-# Initalize Pygame mixer
-pygame.mixer.init()
+# For Linux
+    # Uncomment the line below if you are running on a Linux system
+    # os.system(f'notify-send "{title}" "{message}"')
 
-def countdown_timer(total_seconds, item_name):
+# Function to calculate expiration date
+def calculate_expiration_date(days_until_expire):
+    current_date = datetime.now()
+    expiration_date = current_date + timedelta(days=days_until_expire)
+    return expiration_date
+
+# Function to convert seconds to a readable format
+def format_seconds(seconds):
+    minutes, seconds = divmod(seconds, 60)
+    hours, minutes = divmod(minutes, 60)
+    days, hours = divmod(hours, 24)
+    return days, hours, minutes, seconds
+
+# Function to suggest recipes based on available ingredients
+def suggest_recipes(ingredients):
+    # Example recipes
+    recipes = {
+        'Pizza': ['Flour', 'Tomato Sauce', 'Cheese', 'Pepperoni'],
+        'Pasta': ['Pasta', 'Tomato Sauce', 'Garlic', 'Parmesan'],
+        'Salad': ['Lettuce', 'Tomato', 'Cucumber', 'Dressing'],
+    }
+
+    suggested_recipes = []
+
+    for recipe, recipe_ingredients in recipes.items():
+        if all(ingredient in ingredients for ingredient in recipe_ingredients):
+            suggested_recipes.append(recipe)
+    return suggested_recipe
+
+# Function to countdown timer with notification and suggested recipes 
+def countdown_timer(total_seconds, item_name, item_expiration_date, available_ingredits):
     days, remainder = divmod(total_seconds, 86400)
     hours, remainder = divmod(remainder, 3600)
     minutes, seconds = divmod(remainder, 60)
@@ -16,32 +50,28 @@ def countdown_timer(total_seconds, item_name):
 while total_seconds:
     timeformat = '{:02d}d {:02d}h {:02d}m {:02d}s'.format(days, hours, minutes, seconds)
     print(timeformat, end='\r')
+
+    # Notify one day before expiration
+    if total_seconds == 84600:
+        send_notification(f"{item_name} Expiring Soon", f"{item_name} will expire in 1 day!")
+
+        # Suggest recipes when item is expiring 
+        suggested_recipes = suggested_recipes(available_ingredients)
+        if suggested_recipes:
+            print("\nSuggested Recipes:")
+            for recipe in suggested_recipes:
+                print(f"- {recipe}")
+
     time.sleep(1)
     total_seconds -= 1
     days, remainder = divmod(total_seconds, 86400)
     hours, remainder = divmod(remainder, 3600)
     minutes, seconds = divmod(remainder, 60)
 
-    print(f"\n{item_name} expired!")
-    pygame.mixer.music.load('path/to/your/soundfile.mp3')  # Replace with the path to your sound file
-    pygame.mixer.music.play()
-    while pygame.mixer.music.get_busy():
-        pygame.time.Clock().tick(10)
+print(f"\n{item_name} expired!")
+send_notification(f"{item_name} Expired", f"{item_name} has expired!")
 
-def suggest_recipes(ingredients):
-    #Continue adding example recipes
-    recipes = {
-        'Pizza': ['Flour', 'Tomato Sauce', 'Cheese', 'Pepperoni'],
-        'Pasta': ['Pasta', 'Tomato Sauce', 'Garlic', 'Parmesan'],
-    }
-
-    suggested_recipes = []
-
-    for recipe, recipe_ingredients in recipe.items():
-        if all (ingredient in ingredient for ingredient in recipe_ingredients):
-            suggested_recipes.append(recipes)
-
-    return suggested_recipes
+    
 
 # Dictionary with food items and their respective countdown times in seconds
 food_items = {
@@ -53,10 +83,12 @@ food_items = {
 }
 
 
+
 # Loop through each food item and start the countdown timer
 for item, time_seconds in food_items.items():
     print(f"\nPreparing {item}...")
-    countdown_timer(time_seconds, item)
+    expiration_date = calculate_expiration_date(time_seconds // 60)  # Convert seconds to minutes
+    countdown_timer(time_seconds, item, expiration_date, list(food_items.keys()))
 
 # Get the available list of ingredients
 available_ingredients = list(food_items.keys())
