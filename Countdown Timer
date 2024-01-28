@@ -89,27 +89,27 @@ food_items = {
     'Broccoli': 864000,     # _ minutes
     'Instant Noodles': 31104000,     # _ minutes
     'Tofu': 6480000,     # _ minutes
-    'Mushroom': 432000    
-    'Chicken': 23328000    
-    'Fish': 23328000    
-    'Chillies': 864000    
-    'Garlic': 15552000    
-    'Onion': 1209600
-    'Green Onion': 15552000
-    'Cheese': 2419200
-    'Red Pepper': 864000
-    'Plantains': 1814400
-    'Rice': 62208000
-    'Beef': 23328000
-    'Flour': 1209600
-    'Pork': 23328000
-    'Yogurt': 2419200
-    'Milk': 1209600
-    'Eggs': 2073600
-    'Pasta': 31104000
-    'Tortillas': 2419200
-    'Bread': 1209600
-    'Lettuce': 864000
+    'Mushroom': 432000, 
+    'Chicken': 23328000,    
+    'Fish': 23328000,    
+    'Chillies': 864000,    
+    'Garlic': 15552000,    
+    'Onion': 1209600,
+    'Green Onion': 15552000,
+    'Cheese': 2419200,
+    'Red Pepper': 864000,
+    'Plantains': 1814400,
+    'Rice': 62208000,
+    'Beef': 23328000,
+    'Flour': 1209600,
+    'Pork': 23328000,
+    'Yogurt': 2419200,
+    'Milk': 1209600,
+    'Eggs': 2073600,
+    'Pasta': 31104000,
+    'Tortillas': 2419200,
+    'Bread': 1209600,
+    'Lettuce': 864000,
 }
 
 
