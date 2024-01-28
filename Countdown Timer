@@ -7,10 +7,6 @@ def send_notification(title, message):
     # For macOS
     os.system(f'display notification "{message}" with title "{title}"')
 
-# For Linux
-    # Uncomment the line below if you are running on a Linux system
-    # os.system(f'notify-send "{title}" "{message}"')
-
 # Function to calculate expiration date
 def calculate_expiration_date(days_until_expire):
     current_date = datetime.now()
@@ -52,12 +48,11 @@ def suggest_recipes(ingredients):
 
 # Function to countdown timer with notification and suggested recipes 
 def countdown_timer(total_seconds, item_name, item_expiration_date, available_ingredits):
-    days, remainder = divmod(total_seconds, 86400)
-    hours, remainder = divmod(remainder, 3600)
-    minutes, seconds = divmod(remainder, 60)
+    while total,seconds > 0
+        days, remainder = divmod(total_seconds, 86400)
+        hours, remainder = divmod(remainder, 3600)
+        minutes, seconds = divmod(remainder, 60)
 
-
-    while total_seconds:
         timeformat = '{:02d}d {:02d}h {:02d}m {:02d}s'.format(days, hours, minutes, seconds)
         print(timeformat, end='\r')
 
@@ -74,9 +69,7 @@ def countdown_timer(total_seconds, item_name, item_expiration_date, available_in
 
     time.sleep(1)
     total_seconds -= 1
-    days, remainder = divmod(total_seconds, 86400)
-    hours, remainder = divmod(remainder, 3600)
-    minutes, seconds = divmod(remainder, 60)
+    
 
     print(f"\n{item_name} expired!")
     send_notification(f"{item_name} Expired", f"{item_name} has expired!")
@@ -84,32 +77,32 @@ def countdown_timer(total_seconds, item_name, item_expiration_date, available_in
     
 # Dictionary with food items and their respective countdown times in seconds
 food_items = {
-    'Potatoes': 18144000,    # _ minutes
-    'Tomato': 864000,     # _ minutes
-    'Broccoli': 864000,     # _ minutes
-    'Instant Noodles': 31104000,     # _ minutes
-    'Tofu': 6480000,     # _ minutes
-    'Mushroom': 432000, 
-    'Chicken': 23328000,    
-    'Fish': 23328000,    
-    'Chillies': 864000,    
-    'Garlic': 15552000,    
-    'Onion': 1209600,
-    'Green Onion': 15552000,
-    'Cheese': 2419200,
-    'Red Pepper': 864000,
-    'Plantains': 1814400,
-    'Rice': 62208000,
-    'Beef': 23328000,
-    'Flour': 1209600,
-    'Pork': 23328000,
-    'Yogurt': 2419200,
-    'Milk': 1209600,
-    'Eggs': 2073600,
-    'Pasta': 31104000,
-    'Tortillas': 2419200,
-    'Bread': 1209600,
-    'Lettuce': 864000,
+    'Potatoes': 18144000,    # 21 days
+    'Tomato': 864000,     # 10 days
+    'Broccoli': 864000,     # 10 days
+    'Instant Noodles': 31104000,     # 36 days
+    'Tofu': 6480000,     # 75 days
+    'Mushroom': 432000,     # 5 days
+    'Chicken': 23328000,     # 27 days
+    'Fish': 23328000,     # 27 days  
+    'Chillies': 864000,     # 10 days   
+    'Garlic': 15552000,     # 18 days    
+    'Onion': 1209600,     # 14 days
+    'Green Onion': 15552000,     # 18 days
+    'Cheese': 2419200,     # 28 days
+    'Red Pepper': 864000,     # 10 days
+    'Plantains': 1814400,     # 21 days
+    'Rice': 62208000,     # 72 days
+    'Beef': 23328000,     # 27 days
+    'Flour': 1209600,     # 14 days
+    'Pork': 23328000,     # 27 days
+    'Yogurt': 2419200,     # 28 days
+    'Milk': 1209600,     # 14 days
+    'Eggs': 2073600,     # 24 days
+    'Pasta': 31104000,     # 36 days
+    'Tortillas': 2419200,     # 28 days
+    'Bread': 1209600,     # 14 days
+    'Lettuce': 864000,     # 10 days
 }
 
 
