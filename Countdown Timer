@@ -59,7 +59,7 @@ for item, time_seconds in food_items.items():
 available_ingredients = list(food_items.keys())
 
 # Suggest recipes based on available ingredients
-suggested recipes = suggest_recipes(available_ingredients)
+suggested_recipes = suggest_recipes(available_ingredients)
 
 if suggested_recipes:
     print("\nSuggested Recipes:")
