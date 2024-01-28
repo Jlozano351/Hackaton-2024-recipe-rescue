@@ -28,9 +28,10 @@ def format_seconds(seconds):
 def suggest_recipes(ingredients):
     # Recipes
     recipes = {
-        'Pizza': ['Flour', 'Tomato Sauce', 'Cheese', 'Pepperoni'],
-        'Pasta': ['Pasta', 'Tomato Sauce', 'Garlic', 'Parmesan'],
-        'Salad': ['Lettuce', 'Tomato', 'Cucumber', 'Dressing'],
+        'Mongolian Beef': ['Beef', 'Broccoli'],
+        'Chicken Noodles': ['Chicken', 'Instant Noodles'],
+        'Tomato Eggs': ['Tomato', 'Eggs'],
+        'Dumplings': ['Pork', 'Flour'],
     }
 
     suggested_recipes = []
@@ -74,11 +75,11 @@ def countdown_timer(total_seconds, item_name, item_expiration_date, available_in
     
 # Dictionary with food items and their respective countdown times in seconds
 food_items = {
-    'Flour': 300,    # 5 minutes
-    'Tomato Sauce': 600,     # 10 minutes
-    'Cheese': 300,     # 5 minutes
-    'Pepperoni': 300,     # 5 minutes
-    'Pasta': 600,     # 10 minutes
+    'Potatoe': 18144000,    # _ minutes
+    'Tomato': 864000,     # _ minutes
+    'Broccoli': 864000,     # _ minutes
+    'Instant Noodles': 31104000,     # _ minutes
+    'Tofu': 6480000,     # _ minutes
 }
 
 
