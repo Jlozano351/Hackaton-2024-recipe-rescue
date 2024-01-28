@@ -56,16 +56,16 @@ def countdown_timer(total_seconds, item_name, item_expiration_date, available_in
         timeformat = '{:02d}d {:02d}h {:02d}m {:02d}s'.format(days, hours, minutes, seconds)
         print(timeformat, end='\r')
 
-    # Notify one day before expiration
-    if total_seconds == 84600:
-        send_notification(f"{item_name} Expiring Soon", f"{item_name} will expire in 1 day!")
+        # Notify one day before expiration
+        if total_seconds == 84600:
+            send_notification(f"{item_name} Expiring Soon", f"{item_name} will expire in 1 day!")
 
-        # Suggest recipes when item is expiring 
-        suggested_recipes = suggest_recipes(available_ingredients)
-        if suggested_recipes:
-            print("\nSuggested Recipes:")
-            for recipe in suggested_recipes:
-                print(f"- {recipe}")
+            # Suggest recipes when item is expiring 
+            suggested_recipes = suggest_recipes(available_ingredients)
+            if suggested_recipes:
+                print("\nSuggested Recipes:")
+                for recipe in suggested_recipes:
+                    print(f"- {recipe}")
 
     time.sleep(1)
     total_seconds -= 1
