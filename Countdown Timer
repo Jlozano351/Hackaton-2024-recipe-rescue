@@ -43,10 +43,10 @@ for recipe, recipe_ingredients in recipe.items():
 # Dictionary with food items and their respective countdown times in seconds
 food_items = {
     'Flour': 300,    # 5 minutes
-    'Tomato Sauce': 600     # 10 minutes
-    'Cheese': 300     # 5 minutes
-    'Pepperoni': 300     # 5 minutes
-    'Pasta': 600     # 10 minutes
+    'Tomato Sauce': 600,     # 10 minutes
+    'Cheese': 300,     # 5 minutes
+    'Pepperoni': 300,     # 5 minutes
+    'Pasta': 600,     # 10 minutes
 }
 
 
