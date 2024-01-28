@@ -34,9 +34,9 @@ def suggest_recipes(ingredients):
 
 suggested_recipes = []
 
-    for recipe, recipe_ingredients in recipe.items():
-        if all (ingredient in ingredient for ingredient in recipe_ingredients):
-            suggested_recipes.append(recipes)
+for recipe, recipe_ingredients in recipe.items():
+    if all (ingredient in ingredient for ingredient in recipe_ingredients):
+        suggested_recipes.append(recipes)
 
     return suggested_recipes
 
