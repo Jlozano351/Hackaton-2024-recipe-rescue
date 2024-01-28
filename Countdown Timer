@@ -26,7 +26,7 @@ def format_seconds(seconds):
 
 # Function to suggest recipes based on available ingredients
 def suggest_recipes(ingredients):
-    # Example recipes
+    # Recipes
     recipes = {
         'Pizza': ['Flour', 'Tomato Sauce', 'Cheese', 'Pepperoni'],
         'Pasta': ['Pasta', 'Tomato Sauce', 'Garlic', 'Parmesan'],
@@ -47,9 +47,9 @@ def countdown_timer(total_seconds, item_name, item_expiration_date, available_in
     minutes, seconds = divmod(remainder, 60)
 
 
-while total_seconds:
-    timeformat = '{:02d}d {:02d}h {:02d}m {:02d}s'.format(days, hours, minutes, seconds)
-    print(timeformat, end='\r')
+    while total_seconds:
+        timeformat = '{:02d}d {:02d}h {:02d}m {:02d}s'.format(days, hours, minutes, seconds)
+        print(timeformat, end='\r')
 
     # Notify one day before expiration
     if total_seconds == 84600:
@@ -72,7 +72,6 @@ print(f"\n{item_name} expired!")
 send_notification(f"{item_name} Expired", f"{item_name} has expired!")
 
     
-
 # Dictionary with food items and their respective countdown times in seconds
 food_items = {
     'Flour': 300,    # 5 minutes
@@ -81,7 +80,6 @@ food_items = {
     'Pepperoni': 300,     # 5 minutes
     'Pasta': 600,     # 10 minutes
 }
-
 
 
 # Loop through each food item and start the countdown timer
