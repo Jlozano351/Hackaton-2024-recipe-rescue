@@ -48,7 +48,7 @@ def suggest_recipes(ingredients):
 
 # Function to countdown timer with notification and suggested recipes 
 def countdown_timer(total_seconds, item_name, item_expiration_date, available_ingredits):
-    while total_seconds > 0
+    while total_seconds > 0:
         days, remainder = divmod(total_seconds, 86400)
         hours, remainder = divmod(remainder, 3600)
         minutes, seconds = divmod(remainder, 60)
@@ -61,7 +61,7 @@ def countdown_timer(total_seconds, item_name, item_expiration_date, available_in
         send_notification(f"{item_name} Expiring Soon", f"{item_name} will expire in 1 day!")
 
         # Suggest recipes when item is expiring 
-        suggested_recipes = suggested_recipes(available_ingredients)
+        suggested_recipes = suggest_recipes(available_ingredients)
         if suggested_recipes:
             print("\nSuggested Recipes:")
             for recipe in suggested_recipes:
