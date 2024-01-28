@@ -25,10 +25,28 @@ def countdown_timer(total_seconds, item_name):
     while pygame.mixer.music.get_busy():
         pygame.time.Clock().tick(10)
 
+def suggest_recipes(ingredients):
+    #Continue adding example recipes
+    recipes = {
+        'Pizza': ['Flour', 'Tomato Sauce', 'Cheese', 'Pepperoni'],
+        'Pasta': ['Pasta', 'Tomato Sauce', 'Garlic', 'Parmesan'],
+    }
+
+suggested_recipes = []
+
+    for recipe, recipe_ingredients in recipe.items():
+        if all (ingredient in ingredient for ingredient in recipe_ingredients):
+            suggested_recipes.append(recipes)
+
+    return suggested_recipes
+
 # Dictionary with food items and their respective countdown times in seconds
 food_items = {
-    'Item': 300,     #5 minutes
-    'Item': 600,     #10 minutes
+    'Flour': 300,    # 5 minutes
+    'Tomato Sauce': 600     # 10 minutes
+    'Cheese': 300     # 5 minutes
+    'Pepperoni': 300     # 5 minutes
+    'Pasta': 600     # 10 minutes
 }
 
 
@@ -37,7 +55,18 @@ for item, time_seconds in food_items.items():
     print(f"\nPreparing {item}...")
     countdown_timer(time_seconds, item)
 
-print("\n")
+# Get the available list of ingredients
+available_ingredients = list(food_items.keys())
+
+# Suggest recipes based on available ingredients
+suggested recipes = suggest_recipes(available_ingredients)
+
+if suggested_recipes:
+    print("\nSuggested Recipes:")
+    for recipe in suggested_recipes:
+        print(f"- {recipe})
+else:
+    print("\nNo recipes can be suggested with the available ingredients."
 
 
 # Set the countdown time in seconds for a generic countdown time
