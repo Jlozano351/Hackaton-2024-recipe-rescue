@@ -11,7 +11,7 @@ def countdown_timer(total_seconds, item_name):
 
 
     while total_seconds:
-        timeformat = '{:02d}d {:02d}h {:02d}m {:02d}s'.format(days, hours, minutes, seconds)
+        timeformat = '{:02d}d {:02d}h {:02d}m {:02d}s'.format(days, hours, minutes, seconds,remainder)
         print(timeformat, end='\r')
         time.sleep(1)
         total_seconds -= 1
@@ -20,8 +20,8 @@ def countdown_timer(total_seconds, item_name):
         minutes, remainder = divmod(remainder, 60)
 
     print(f"\n{item_name} expired!")
-    pygame.mixer.music.load
-    pygame.mixer.music.play
+    pygame.mixer.music.load()
+    pygame.mixer.music.play()
     while pygame.mixer.music.get_busy():
         pygame.time.Clock().tick(10)
 
@@ -64,9 +64,9 @@ suggested_recipes = suggest_recipes(available_ingredients)
 if suggested_recipes:
     print("\nSuggested Recipes:")
     for recipe in suggested_recipes:
-        print(f"- {recipe})
+        print(f"- {recipe}")
 else:
-    print("\nNo recipes can be suggested with the available ingredients."
+    print("\nNo recipes can be suggested with the available ingredients.")
 
 
 # Set the countdown time in seconds for a generic countdown time
